@@ -17,11 +17,11 @@ document.body.appendChild( renderer.domElement );
 
 
 // lighting
-const light = new THREE.AmbientLight( 0x505050, 5 ); // soft white light
+const light = new THREE.AmbientLight( 0x505050, 1.5 ); // soft white light
 scene.add( light );
 
 const light1 = new THREE.DirectionalLight( 0xbbbbff, 1 );
-light1.position.set( 3, 3, 1 );
+light1.position.set( 6, 6, 1 );
 scene.add( light1 );
 
 // helpers
@@ -100,8 +100,11 @@ door.position.y = 1.01;
 scene.add( door );
 
 // window for name
+const text = new THREE.TextureLoader().load( 'assets/textures/NameCard.png' );
+
 const windowGeometry = new THREE.BoxGeometry( 1, 1, 0.2);
 const windowMaterial = new THREE.MeshLambertMaterial( { color: 0xffffff } );
+windowMaterial.map = text;
 const textWindow = new THREE.Mesh( windowGeometry, windowMaterial );
 textWindow.position.z = -0.19;
 textWindow.position.y = 2.8;
