@@ -82,9 +82,22 @@ frontWall.position.z = -0.2;
 frontWall.position.y = 2.01;
 scene.add( frontWall );
 
+// roof
+const roofGeometry = new THREE.ConeGeometry( 4, 2, 4 );
+const roofMaterial = new THREE.MeshLambertMaterial( { color: 0x00FFFF } );
+const roof = new THREE.Mesh( roofGeometry, roofMaterial );
+roof.position.y = 5;
+roof.position.z = -2.6;
+roof.rotation.y = 0.8;
+scene.add( roof );
 
-
-
+// door 
+const doorGeometry = new THREE.BoxGeometry( 1, 2, 0.2);
+const doorMaterial = new THREE.MeshLambertMaterial( { color: 0x000000 } );
+const door = new THREE.Mesh( doorGeometry, doorMaterial );
+door.position.z = -0.19;
+door.position.y = 1.01;
+scene.add( door );
 
 
 // animate certain things      
