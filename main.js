@@ -34,15 +34,57 @@ scene.add( helper );
 
 // basic ground of the scene
 const geometry = new THREE.PlaneGeometry( 20, 20 );
-			const material = new THREE.MeshLambertMaterial( { color: 0xffffff } );
+			const material = new THREE.MeshLambertMaterial( { color: 0x00FF00 } );
 			const plane = new THREE.Mesh( geometry, material );
       // use doubleside otherwise only one side will be rendered
       plane.material.side = THREE.DoubleSide;
       plane.rotation.x = Math.PI / 2;
+      plane.position.y = 0;
 			scene.add( plane );
       camera.position.z = 5;
       camera.position.y = 20;
       camera.lookAt(plane.position);
+
+
+// start of house
+
+// back wall
+const backWallGeometry = new THREE.BoxGeometry( 5, 4, 0.2);
+const backWallMaterial = new THREE.MeshLambertMaterial( { color: 0xffffff } );
+const backWall = new THREE.Mesh( backWallGeometry, backWallMaterial );
+backWall.position.z = -5;
+backWall.position.y = 2.01;
+scene.add( backWall );
+
+// left wall
+const leftWallGeometry = new THREE.BoxGeometry( 0.2, 4, 5);
+const leftWallMaterial = new THREE.MeshLambertMaterial( { color: 0xA020F0 } );
+const leftWall = new THREE.Mesh( leftWallGeometry, leftWallMaterial );
+leftWall.position.x = -2.5;
+leftWall.position.y = 2.01;
+leftWall.position.z = -2.6;
+scene.add( leftWall );
+
+// right wall
+const rightWallGeometry = new THREE.BoxGeometry( 0.2, 4, 5);
+const rightWallMaterial = new THREE.MeshLambertMaterial( { color: 0xFF0000 } );
+const rightWall = new THREE.Mesh( rightWallGeometry, rightWallMaterial );
+rightWall.position.x = 2.5;
+rightWall.position.y = 2.01;
+rightWall.position.z = -2.6;
+scene.add( rightWall );
+
+// front wall
+const frontWallGeometry = new THREE.BoxGeometry( 5, 4, 0.2);
+const frontWallMaterial = new THREE.MeshLambertMaterial( { color: 0x0000FF } );
+const frontWall = new THREE.Mesh( frontWallGeometry, frontWallMaterial );
+frontWall.position.z = -0.2;
+frontWall.position.y = 2.01;
+scene.add( frontWall );
+
+
+
+
 
 
 // animate certain things      
