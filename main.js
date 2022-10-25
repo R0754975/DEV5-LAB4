@@ -99,6 +99,16 @@ door.position.z = -0.19;
 door.position.y = 1.01;
 scene.add( door );
 
+// window for name
+const windowGeometry = new THREE.BoxGeometry( 1, 1, 0.2);
+const windowMaterial = new THREE.MeshLambertMaterial( { color: 0xffffff } );
+const textWindow = new THREE.Mesh( windowGeometry, windowMaterial );
+textWindow.position.z = -0.19;
+textWindow.position.y = 2.8;
+scene.add( textWindow );
+
+
+
 
 // animate certain things      
 function animate() {
