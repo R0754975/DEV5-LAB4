@@ -33,8 +33,11 @@ scene.add( helper );
 
 
 // basic ground of the scene
+const grass = new THREE.TextureLoader().load(' assets/textures/grass.jpg' );
+
 const geometry = new THREE.PlaneGeometry( 20, 20 );
-			const material = new THREE.MeshLambertMaterial( { color: 0x00FF00 } );
+			const material = new THREE.MeshLambertMaterial( { color: 0xffffff } );
+      material.map = grass;
 			const plane = new THREE.Mesh( geometry, material );
       // use doubleside otherwise only one side will be rendered
       plane.material.side = THREE.DoubleSide;
@@ -47,10 +50,13 @@ const geometry = new THREE.PlaneGeometry( 20, 20 );
 
 
 // start of house
+const wall = new THREE.TextureLoader().load(' assets/textures/wall.jpg' );
+
 
 // back wall
 const backWallGeometry = new THREE.BoxGeometry( 5, 4, 0.2);
 const backWallMaterial = new THREE.MeshLambertMaterial( { color: 0xffffff } );
+backWallMaterial.map = wall;
 const backWall = new THREE.Mesh( backWallGeometry, backWallMaterial );
 backWall.position.z = -5;
 backWall.position.y = 2.01;
@@ -58,7 +64,8 @@ scene.add( backWall );
 
 // left wall
 const leftWallGeometry = new THREE.BoxGeometry( 0.2, 4, 5);
-const leftWallMaterial = new THREE.MeshLambertMaterial( { color: 0xA020F0 } );
+const leftWallMaterial = new THREE.MeshLambertMaterial( { color: 0xffffff } );
+leftWallMaterial.map = wall;
 const leftWall = new THREE.Mesh( leftWallGeometry, leftWallMaterial );
 leftWall.position.x = -2.5;
 leftWall.position.y = 2.01;
@@ -67,7 +74,8 @@ scene.add( leftWall );
 
 // right wall
 const rightWallGeometry = new THREE.BoxGeometry( 0.2, 4, 5);
-const rightWallMaterial = new THREE.MeshLambertMaterial( { color: 0xFF0000 } );
+const rightWallMaterial = new THREE.MeshLambertMaterial( { color: 0xffffff } );
+rightWallMaterial.map = wall;
 const rightWall = new THREE.Mesh( rightWallGeometry, rightWallMaterial );
 rightWall.position.x = 2.5;
 rightWall.position.y = 2.01;
@@ -76,15 +84,18 @@ scene.add( rightWall );
 
 // front wall
 const frontWallGeometry = new THREE.BoxGeometry( 5, 4, 0.2);
-const frontWallMaterial = new THREE.MeshLambertMaterial( { color: 0x0000FF } );
+const frontWallMaterial = new THREE.MeshLambertMaterial( { color: 0xffffff } );
+frontWallMaterial.map = wall;
 const frontWall = new THREE.Mesh( frontWallGeometry, frontWallMaterial );
 frontWall.position.z = -0.2;
 frontWall.position.y = 2.01;
 scene.add( frontWall );
 
 // roof
-const roofGeometry = new THREE.ConeGeometry( 4, 2, 4 );
-const roofMaterial = new THREE.MeshLambertMaterial( { color: 0x00FFFF } );
+const roofTexture = new THREE.TextureLoader().load(' assets/textures/roof.jpg' );
+const roofGeometry = new THREE.ConeGeometry( 4.5, 2, 4 );
+const roofMaterial = new THREE.MeshLambertMaterial( { color: 0xffffff } );
+roofMaterial.map = roofTexture;
 const roof = new THREE.Mesh( roofGeometry, roofMaterial );
 roof.position.y = 5;
 roof.position.z = -2.6;
